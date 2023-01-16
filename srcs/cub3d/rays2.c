@@ -1,77 +1,91 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rays2.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hazaouya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/16 14:02:08 by hazaouya          #+#    #+#             */
+/*   Updated: 2023/01/16 14:13:20 by hazaouya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../incs/header3D.h"
 
-// Rays
-double length(t_ray *ray)
+double	length(t_ray *ray)
 {
-    double len ;
-    double xsize ;
-    double ysize ;
+	double	len;
+	double	xsize;
+	double	ysize;
 
-    xsize = pow2((ray->x_end - ray->x_origin)) ;
-    ysize = pow2((ray->y_end - ray->y_origin)) ;
-    len = sqrt(xsize + ysize) ;
-    return (len) ;
+	xsize = pow2((ray->x_end - ray->x_origin));
+	ysize = pow2((ray->y_end - ray->y_origin));
+	len = sqrt(xsize + ysize);
+	return (len);
 }
 
-double magnitude(double x, double y, double endx, double endy, double angle)
+double	magnitude(double x, double y, double endx, double endy)
 {
-    double len ;
-    double xsize ;
-    double ysize ;
+	double	len;
+	double	xsize;
+	double	ysize;
 
-    xsize = pow2((endx - x)) ;
-    ysize = pow2((endy - y)) ;
-    len = sqrt(xsize + ysize);
-    return (len) ;
-
+	xsize = pow2((endx - x));
+	ysize = pow2((endy - y));
+	len = sqrt(xsize + ysize);
+	return (len);
 }
 
-double get_y_distance(t_game *game, t_ray *r, double xs, double ys)
+double	get_y_distance(t_game *game, t_ray *r, double xs, double ys)
 {
-    double x ;
-    double y ;
-    int     xp ;
-    int     yp ;
+	double	x;
+	double	y;
+	int		xp;
+	int		yp;
 
-    x = game->player.x ;
-    y = game->player.y ;
-    xp = x / game->width_by_map ;
-    yp = y / game->height_by_map ;
-    while (inclusive(0, (game->height - 1), yp) && inclusive(0, (game->width - 1), xp) && game->map[yp][xp] != '1')
-    {
-        y += ys ;
-        yp = y / game->height_by_map ;
-        if (game->map[yp][xp] == '1')
-            break ;
-        x += xs ;
-        xp = x / game->width_by_map ;
-    }
-    r->x_end = roundf(x) ;
-    r->y_end = roundf(y) ;
-    return (magnitude(game->player.x, game->player.y, x, y, r->angle)) ;
+	x = game->player.x;
+	y = game->player.y;
+	xp = x / game->width_by_map;
+	yp = y / game->height_by_map;
+	while (inclusive(0, (game->height - 1), yp) && \
+			inclusive(0, (game->width - 1), xp) && \
+			game->map[yp][xp] != '1')
+	{
+		y += ys;
+		yp = y / game->height_by_map;
+		if (game->map[yp][xp] == '1')
+			break ;
+		x += xs;
+		xp = x / game->width_by_map;
+	}
+	r->x_end = roundf(x);
+	r->y_end = roundf(y);
+	return (magnitude(game->player.x, game->player.y, x, y));
 }
 
-double get_x_distance(t_game *game, t_ray *r, double xs, double ys)
+double	get_x_distance(t_game *game, t_ray *r, double xs, double ys)
 {
-    double x ;
-    double y ;
-    int     xp ;
-    int     yp ;
+	double	x;
+	double	y;
+	int		xp;
+	int		yp;
 
-    x = game->player.x ;
-    y = game->player.y ;
-    xp = x / game->width_by_map ;
-    yp = y / game->height_by_map ;
-    while (inclusive(0, (game->height - 1), yp) && inclusive(0, (game->width - 1), xp) && game->map[yp][xp] != '1')
-    {
-        x += xs ;
-        xp = x / game->width_by_map ;
-        if (game->map[yp][xp] == '1')
-            break ;
-        y += ys ;
-        yp = y / game->height_by_map ;
-    }
-    r->x_end = roundf(x) ;
-    r->y_end = roundf(y) ;
-    return (magnitude(game->player.x, game->player.y, x, y, r->angle)) ;
+	x = game->player.x;
+	y = game->player.y ;
+	xp = x / game->width_by_map;
+	yp = y / game->height_by_map;
+	while (inclusive(0, (game->height - 1), yp) && \
+			inclusive(0, (game->width - 1), xp) && \
+			game->map[yp][xp] != '1')
+	{
+		x += xs;
+		xp = x / game->width_by_map;
+		if (game->map[yp][xp] == '1')
+			break ;
+		y += ys ;
+		yp = y / game->height_by_map;
+	}
+	r->x_end = roundf(x);
+	r->y_end = roundf(y);
+	return (magnitude(game->player.x, game->player.y, x, y));
 }

@@ -78,4 +78,13 @@ int     get_color_from_texture(t_game *game, t_ray *ray, int y, int x) ; // just
 // minimap
 void minimap(t_game *game) ;
 
+//Initialization
+void	init_animations(t_game *game);
+void	simplify_colors(t_game *game);
+void	init_textures(t_game *game);
+t_game	*init_game(char *map_file);
+
+void	rotate_mouse(t_game *game);
+double	where_ray_hit(t_game *game, t_ray *r, double xs, double ys);
+
 # endif

@@ -1,9 +1,7 @@
 #ifndef MACROS_H
 # define MACROS_H
 
-/*** LOOKUP FOR draw_3dwall FUNCTION ****/
-
-# define FOV 1.1072 // 70 degree
+# define FOV 1.1072
 
 # define CEIL_COLOR 0x7ec8e3
 # define FLOOR_COLOR 0x222222
@@ -18,6 +16,7 @@
 # define S_KEY 1
 # define R_ANGLE 2
 # define L_ANGLE 0
+# define EXIT 53
 
 # define MOUSE_MOVE_EVENT 6
 
@@ -36,7 +35,7 @@
 # define MOVE_X 20
 # define MOVE_Y 20
 # define KEEP_AWAY(tile) ((double)tile / 4)
-# define KEEP_DISTANCE_FROM_WALL(tile_size) (tile_size / 2) // (tile_size / 2)
+# define KEEP_DISTANCE_FROM_WALL(tile_size) (tile_size / 2)
 
 # define WALL_HEIGHT 32
 
@@ -51,20 +50,10 @@
 
 # define distProjPlane ((double)(WIDTH / 2) / tan(FOV / 2))
 # define wallHeight(distance) ((CUBE_SIZE / distance) * distProjPlane)
-// # define isUp(angle) (inclusive(-M_PI, 0, angle))
-// # define isRight(angle) (inclusive(-M_PI_2, M_PI_2, angle))
-
-
-// # define isUp(angle) (inclusive(M_PI, M_PI * 2, angle))
-// # define isRight(angle) (!inclusive(M_PI_2, M_PI + M_PI_2, angle))
 
 # define isUp(angle) (sin(angle) <= 0)
 # define isRight(angle) (cos(angle) >= 0)
 
-// # define isUp(angle) (!inclusive(0, M_PI, angle))
-// # define isRight(angle) (!inclusive(M_PI_2, M_PI + M_PI_2, angle))
-
-// TEXTURE MACROS
 # define WEST 1
 # define EAST 2
 # define SOUTH 3

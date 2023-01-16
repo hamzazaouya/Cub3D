@@ -1,5 +1,11 @@
 #include "../../incs/header3D.h"
 
+int    exit_cub3d(t_game *game)
+{
+    ft_putstr_fd(1, "Cub3D has been closed successfully!\n") ;
+    exit(EXIT_SUCCESS) ; 
+}
+
 void    do_pressed_key_action(int key, t_game *game)
 {
     if (key == RIGHT_KEY)
@@ -20,18 +26,10 @@ void    do_pressed_key_action(int key, t_game *game)
         game->angle -= 0.08 ;
         normalize_angle1(game) ;
     }
-    // else if (key == EXIT_KEY)
-    // {
-    //     ft_putstr_fd(1, "Thank u for playing our Cub3D\n") ;
-    //     exit(EXIT_SUCCESS) ;
-    // }
+    else if(key == 53)
+        exit_cub3d(game);
 }
 
-int    exit_cub3d(t_game *game)
-{
-    ft_putstr_fd(1, "Cub3D has been closed successfully!\n") ;
-    exit(EXIT_SUCCESS) ; 
-}
 
 
 int actions(int key, t_game *game)
