@@ -1,6 +1,6 @@
 NAME = cub3D
 HEADER = header3D.h
-SOURCES = cub3d/main.c cub3d/init.c cub3d/draw.c cub3d/ft_itoa.c cub3d/mlx.c cub3d/player.c cub3d/player_mouse.c cub3d/rays2.c cub3d/rays_hit.c cub3d/actions.c cub3d/draw2d.c  cub3d/minimap.c cub3d/moves.c cub3d/rays.c cub3d/utils.c \
+SOURCES = cub3d/main.c cub3d/init.c cub3d/draw.c cub3d/ft_itoa.c cub3d/mlx.c cub3d/player.c cub3d/player_mouse.c cub3d/rays2.c cub3d/rays_hit.c cub3d/actions.c cub3d/minimap.c cub3d/moves.c cub3d/moves1.c cub3d/rays.c cub3d/utils.c \
 	prs/checking.c prs/functions.c prs/parser_map.c prs/split_by_lim.c prs/checking1.c prs/functions1.c prs/map_queue.c prs/parser1.c prs/parser_map1.c prs/split_by_space.c prs/errors.c prs/parser.c prs/parser2.c prs/split.c prs/valid.c \
 	prs/gnl/get_next_line_utils.c prs/gnl/get_next_line.c
 SRC_PATH = srcs

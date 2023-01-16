@@ -122,5 +122,14 @@ typedef struct game
     atomic_int mouse ;
 }   t_game ;
 
+typedef struct moves
+{
+    double	after_move_x;
+	double	after_move_y;
+	double	angle;
+	int		ax;
+	int		ay;
+} t_moves;
+
 
 # endif

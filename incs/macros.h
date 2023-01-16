@@ -16,7 +16,7 @@
 # define S_KEY 1
 # define R_ANGLE 2
 # define L_ANGLE 0
-# define EXIT 53
+# define EXIT_KEY 53
 
 # define MOUSE_MOVE_EVENT 6
 
@@ -58,5 +58,10 @@
 # define EAST 2
 # define SOUTH 3
 # define NORTH 4
+
+# define RAY 100
+# define DIAMETRE RAY * 2
+# define ZOOM 4
+# define is_player(c) (c == 'W' || c == 'N' || c == 'E' || c == 'S')
 
 # endif

@@ -42,8 +42,6 @@ int     mouse(int x, int y, t_game *game) ;
 // UTILS
 void    normalize_angle1(t_game *game) ; // normalizes the angle to not surpass PI VALUE and -PI VALUE ([-PI, 0] -> DOWN | [0, P] -> UP)
 void    normalize_angle(t_game *game) ; // normalizes the angle to not surpass PI VALUE and -PI VALUE ([-PI, 0] -> DOWN | [0, P] -> UP)
-t_pos   *getPlayerPosInMap(t_game *game, double x, double y) ;
-t_pos   *getPlayerPosInWindow(t_game *game, int x, int y) ;
 int     window_valid(int x, int y) ;
 // ACTIONS
 int     actions(int key, t_game *game) ;
@@ -86,5 +84,9 @@ t_game	*init_game(char *map_file);
 
 void	rotate_mouse(t_game *game);
 double	where_ray_hit(t_game *game, t_ray *r, double xs, double ys);
+double	get_normalized_angle(double angle);
+void    init_moves_right(t_game *game, t_moves *data);
+void    init_moves_left(t_game *game, t_moves *data);
+void    init_moves_down(t_game *game, t_moves *data);
 
 # endif
