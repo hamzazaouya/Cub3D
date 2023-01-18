@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   macros.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hazaouya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/18 10:58:10 by hazaouya          #+#    #+#             */
+/*   Updated: 2023/01/18 11:01:19 by hazaouya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MACROS_H
 # define MACROS_H
 
@@ -24,7 +36,7 @@
 # define HEIGHT 800
 
 # define WIDTH_3D (WIDTH * 2)
-# define HEIGHT_3D (HEIGHT)
+#define HEIGHT_3D (HEIGHT)
 
 // 3D MACROS
 # define WIDTH_3D_START WIDTH

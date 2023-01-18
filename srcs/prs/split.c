@@ -1,23 +1,35 @@
-# include "parser.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hazaouya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/18 10:32:03 by hazaouya          #+#    #+#             */
+/*   Updated: 2023/01/18 10:33:12 by hazaouya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int get_split_len(char **m)
+#include "parser.h"
+
+int	get_split_len(char **m)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (m[i])
-        i++ ;
-    return (i) ;
+	i = 0;
+	while (m[i])
+		i++;
+	return (i);
 }
 
-void free_split(char **m)
+void	free_split(char **m)
 {
-    int i;
+	int	i;
 
-    i = -1;
-    while (m[++i])
-    {
-        free(m[i]) ;
-        m[i] = NULL;
-    }
+	i = -1;
+	while (m[++i])
+	{
+		free(m[i]);
+		m[i] = NULL;
+	}
 }

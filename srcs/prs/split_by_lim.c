@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split_by_lim.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hazaouya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/18 10:33:23 by hazaouya          #+#    #+#             */
+/*   Updated: 2023/01/18 10:34:06 by hazaouya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "parser.h"
 
-int in_str(const char *s, char c)
+int	in_str(const char *s, char c)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (s[i] && s[i] != c)
-        i++ ;
-    return (s[i] == c) ;
+	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	return (s[i] == c);
 }
 
 static int	count_words(const char *str, const char *lim)

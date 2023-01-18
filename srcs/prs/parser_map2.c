@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions1.c                                       :+:      :+:    :+:   */
+/*   parser_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hazaouya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 11:37:17 by hazaouya          #+#    #+#             */
-/*   Updated: 2023/01/17 11:38:35 by hazaouya         ###   ########.fr       */
+/*   Created: 2023/01/17 12:09:51 by hazaouya          #+#    #+#             */
+/*   Updated: 2023/01/18 10:25:24 by hazaouya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-char	*slice(const char *s, int start, int end)
+int	check_edges(char **map, int width, int height)
 {
-	int		len;
 	int		i;
-	char	*res;
+	int		j;
+	int		len;
+	char	*s;
 
-	if (end <= start)
-		return (NULL);
-	len = end - start;
-	res = (char *) alloc((len + 1) * sizeof(char));
-	res[len] = 0;
-	i = 0;
-	while (start < end)
-		res[i++] = s[start++];
-	return (res);
+	i = -1;
+	while (map[++i])
+	{
+		j = -1 ;
+		s = ft_strtrim(map[i]);
+		if (s)
+			len = (int) ft_strlen(s);
+		while (s && s[++j])
+		{
+			if ((i == height - 1 || i == 0 || j == len - 1 \
+					|| j == 0) && s[j] != '1')
+			{
+				free(s);
+				return (0);
+			}
+		}
+		if (s)
+			free(s);
+	}
+	return (1);
 }

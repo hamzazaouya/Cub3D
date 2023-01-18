@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hazaouya <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 10:01:45 by hazaouya          #+#    #+#             */
-/*   Updated: 2023/01/16 10:48:30 by hazaouya         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../incs/header3D.h"
 
 void	init_mlx(t_game *game)
@@ -34,7 +22,7 @@ void	init_mlx(t_game *game)
 		game->height_by_map / 2;
 }
 
-void	cub_init(t_game *game)
+void	cub3d(t_game *game)
 {
 	init_mlx(game);
 	init_animations(game);
@@ -58,5 +46,5 @@ int	main(int ac, char **av)
 	game = init_game(av[1]);
 	if (!parser(game))
 		return (1);
-	cub_init(game);
+	cub3d(game);
 }

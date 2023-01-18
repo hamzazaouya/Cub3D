@@ -1,66 +1,78 @@
-# include "parser.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   functions.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hazaouya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/17 11:33:17 by hazaouya          #+#    #+#             */
+/*   Updated: 2023/01/17 11:36:39 by hazaouya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int is_space(char c)
+#include "parser.h"
+
+int	is_space(char c)
 {
-    return (c == ' ' || c == '\n' || c == '\t' \
-    || c == '\v' || c == '\f' || c == '\r') ;
+	return (c == ' ' || c == '\n' || c == '\t' \
+		|| c == '\v' || c == '\f' || c == '\r');
 }
 
-char *ft_strtrim(const char *s)
+char	*ft_strtrim(const char *s)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    if (!s)
-        return (NULL) ;
-    i = 0;
-    j = ft_strlen(s) - 1 ;
-    while (s[i] && is_space(s[i]))
-        i++ ;
-    while (j >= 0 && is_space(s[j]))
-        j-- ;
-    return (slice(s, i, j + 1)) ;
+	if (!s)
+		return (NULL);
+	i = 0;
+	j = ft_strlen(s) - 1;
+	while (s[i] && is_space(s[i]))
+		i++;
+	while (j >= 0 && is_space(s[j]))
+		j--;
+	return (slice(s, i, j + 1));
 }
 
-int ft_atoi(const char *s)
+int	ft_atoi(const char *s)
 {
-    int i;
-    int res;
+	int	i;
+	int	res;
 
-    i = 0;
-    res = 0;
-    while (s[i])
-    {
-        res = (res * 10) + s[i] - '0' ;
-        i++;
-    }
-    return res ;
+	i = 0;
+	res = 0;
+	while (s[i])
+	{
+		res = (res * 10) + s[i] - '0';
+		i++;
+	}
+	return (res);
 }
 
-int ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (s1[i] || s2[i])
-    {
-        if (s1[i] != s2[i])
-            return (s1[i] - s2[i]) ;
-        i++ ;
-    }
-    return (0) ;
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
 }
 
-int ft_strncmp(const char *s1, const char *s2, int n)
+int	ft_strncmp(const char *s1, const char *s2, int n)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while ((s1[i] || s2[i]) && i < n)
-    {
-        if (s1[i] != s2[i])
-            return (s1[i] - s2[i]) ;
-        i++ ;
-    }
-    return (0) ;
+	i = 0;
+	while ((s1[i] || s2[i]) && i < n)
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
 }
